@@ -1,7 +1,9 @@
 services:
   ultravidz-public:
     container_name: ultravidz-public
-    build: ./Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
     restart: unless-stopped
     networks:
       - proxy

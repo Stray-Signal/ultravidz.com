@@ -1,2 +1,0 @@
-# ultravidz.com
-Webpage - UltraVidz

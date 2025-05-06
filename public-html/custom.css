@@ -6,3 +6,55 @@
 span{ display: inline-block; margin:1em; } 
     .aussie-view{ transform: scale(-1, -1);  }
     
+    body {
+        background-color: black;
+        background-image: url("https://www.transparenttextures.com/patterns/batthern.png");
+        color: lime;
+        font-family: "arial black", cursive, sans-serif;
+        margin: 0;
+      }
+      table {
+        width: 100%;
+        border: 5px solid red;
+      }
+      td {
+        padding: 10px;
+        border: 2px dashed yellow;
+      }
+      h1 {
+        color: cyan;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      marquee {
+        color: magenta;
+        font-weight: bold;
+        font-size: 4em;
+      }
+      .sidebar {
+        width: 25%;
+        background-color: navy;
+        color: white;
+        vertical-align: top;
+      }
+      .main {
+        background-color: black;
+      }
+      .footer {
+        background-color: darkred;
+        text-align: center;
+        color: white;
+        padding: 5px;
+        font-size: 12px;
+      }
+      .gif {
+        display: block;
+        margin: 10px auto;
+      }
+      a {
+        color: aqua;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }

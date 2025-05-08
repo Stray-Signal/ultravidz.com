@@ -17,7 +17,8 @@ function submitForm(event) {
   // Get form data
   const discordName = document.getElementById('discordName').value;
   const comments = document.getElementById('comments').value;
-  const email = document.getElementById('email').value;
+  // const email = document.getElementById('email').value;
+  const email = discordName + "@aintnobodiesbusiness.fo";
   
   // Get visitor_id from cookie
   const visitorId = getCookie('visitor_id');
@@ -65,7 +66,7 @@ function submitForm(event) {
 <hr>
 <form id="guestbookForm" onsubmit="submitForm(event)">
 Discord Name: <input type="text" id="discordName" name="name" required><br>
-Email: <input type="email" id="email" name="email" required><br>
+<!-- Email: <input type="email" id="email" name="email" required><br> -->
 Comments: <br><textarea id="comments" name="comments" rows="5" cols="60"></textarea><br>
 <input type="submit" value="Submit">
 </form>

@@ -1,5 +1,60 @@
-<html>
+<html></html>
 <head>
+    <script src="/tracking.js"></script>
+<script>
+// Function to get cookie value by name
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null;
+}
+
+// JavaScript to handle form submission
+function submitForm(event) {
+  event.preventDefault();
+  
+  // Get form data
+  const discordName = document.getElementById('discordName').value;
+  const comments = document.getElementById('comments').value;
+  const email = document.getElementById('email').value;
+  
+  // Get visitor_id from cookie
+  const visitorId = getCookie('visitor_id');
+  
+  // Create JSON payload
+  const data = {
+    email: email,
+    name: discordName,
+    source_page: window.location.href,
+    visitor_id: visitorId || '' // Include visitor_id if available
+  };
+  
+  // Submit to the subscribe endpoint
+  fetch('https://api.ultravidz.com/subscribe', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(data => {
+    if(data.success) {
+      document.getElementById('resultMessage').textContent = 'Thank you for signing the guestbook!';
+      document.getElementById('resultMessage').style.color = 'green';
+    } else {
+      document.getElementById('resultMessage').textContent = data.error || 'Error submitting form';
+      document.getElementById('resultMessage').style.color = 'red';
+    }
+  })
+  .catch(error => {
+    document.getElementById('resultMessage').textContent = 'Error: ' + error;
+    document.getElementById('resultMessage').style.color = 'red';
+  });
+}
+</script>
+</head>
 <body bgcolor=D3D3D3>
 <h2>Congratulations! You Found The Easter Egg!</h2>
 <h4>Please use respectful language.  There are children that may see this!</h4>
@@ -7,13 +62,13 @@
 <p>One winner will be be randomly selected May 21st and will be announced in #movie-night discord channel.</p>
 
 <hr>
-<form method=post action="/cgi-bin/guestBook.pl">
-<input type=hidden name=fields value="Name,Comments">
-Discord Name: <input type=text name=Name><br>
-Comments: <br><textarea name=Comments rows=5 cols=60>
-</textarea><br>
-<input type=submit value="Submit">
+<form id="guestbookForm" onsubmit="submitForm(event)">
+Discord Name: <input type="text" id="discordName" name="name" required><br>
+Email: <input type="email" id="email" name="email" required><br>
+Comments: <br><textarea id="comments" name="comments" rows="5" cols="60"></textarea><br>
+<input type="submit" value="Submit">
 </form>
+<div id="resultMessage"></div>
 <hr noshade>
 
 <!--GUESTBOOK-OPTIONS: maxEntries=20-->

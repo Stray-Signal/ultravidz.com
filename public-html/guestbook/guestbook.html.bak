@@ -1,0 +1,26 @@
+<html>
+<head>
+<body bgcolor=D3D3D3>
+<h2>Congratulations! You Found The Easter Egg!</h2>
+<h4>Please use respectful language.  There are children that may see this!</h4>
+<p>Sign the guestbook before May 20th, 2025 to enter the drawing to win a bacon cheeseburger!</p>
+<p>One winner will be be randomly selected May 21st and will be announced in #movie-night discord channel.</p>
+
+<hr>
+<form method=post action="">
+<input type=hidden name=fields value="Name,Comments">
+Discord Name: <input type=text name=Name><br>
+Comments: <br><textarea name=Comments rows=5 cols=60>
+</textarea><br>
+<input type=submit value="Submit">
+</form>
+<hr noshade>
+
+<!--GUESTBOOK-OPTIONS: maxEntries=20-->
+<!--GUESTBOOK-->
+<!--GUESTBOOK-->
+
+<hr noshade>
+
+</body>
+</html>
